@@ -4,7 +4,7 @@ import { api } from "@/convex/_generated/api";
 
 export default async function ServerPage() {
   const preloaded = await preloadQuery(api.myFunctions.listNumbers, {
-    count: 3,
+    count: 3, 
   });
 
   const data = preloadedQueryResult(preloaded);
