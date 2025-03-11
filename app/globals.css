@@ -1,10 +1,6 @@
-
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-import { tailwindcss/postcss } from '@tailwindcss/postcss';
 
 :root {
   --primary: #00AE98;
@@ -233,4 +229,4 @@ import { tailwindcss/postcss } from '@tailwindcss/postcss';
   .print-only {
     @apply block;
   }
-}
+};

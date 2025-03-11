@@ -22,6 +22,7 @@
     "lucide-react": "^0.479.0",
     "next": "15.2.2",
     "npm-run-all": "^4.1.5",
+    "postcss-import": "^16.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^3.0.2",
@@ -45,5 +46,6 @@
       "esbuild",
       "sharp"
     ]
-  }
+  },
+  "packageManager": "pnpm@10.6.2"
 }
