@@ -1,9 +1,15 @@
+
+import React from "react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ClerkProvider, SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs";
+import { ClerkProvider, SignedIn, SignedOut, SignInButton, SignUpButton, useAuth, UserButton } from "@clerk/nextjs";
 import { ConvexProviderWithClerk } from "convex/react-clerk";
-import { useAuth } from "@clerk/clerk-react";
+import { useAuth } from "@clerk/nextjs/server";
+import { ConvexClient } from "convex/browser";
+
+
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,12 +29,15 @@ export const metadata: Metadata = {
   },
 };
 
-const convex Clien
+const convexClient = new ConvexClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  
   return (
     <ClerkProvider>
       <html lang="en">
@@ -42,7 +51,7 @@ export default function RootLayout({
               <UserButton />
             </SignedIn>
           </header>
-          <ConvexProviderWithClerk client={convex} useAuth={() => useAuth()}>
+          <ConvexProviderWithClerk client={convexClient} useAuth={() => useAuth()}>
             {children}
           </ConvexProviderWithClerk>
         </body>
